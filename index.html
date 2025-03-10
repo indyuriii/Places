@@ -8,25 +8,21 @@
 <link rel="stylesheet" href="vendor/reset.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
-<body class="multiple-scenes ">
+<body class="multiple-scenes">
 
 <div id="pano"></div>
 
 <div id="sceneList">
   <ul class="scenes">
-    
-      <a href="javascript:void(0)" class="scene" data-id="0-p1">
-        <li class="text">p1</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="1-p2">
-        <li class="text">p2</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="2-p3">
-        <li class="text">p3</li>
-      </a>
-    
+    <a href="javascript:void(0)" class="scene" data-id="0-p1">
+      <li class="text">p1</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="1-p2">
+      <li class="text">p2</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="2-p3">
+      <li class="text">p3</li>
+    </a>
   </ul>
 </div>
 
@@ -39,6 +35,7 @@
   <img class="icon on" src="img/pause.png">
 </a>
 
+<!-- Fullscreen Button -->
 <a href="javascript:void(0)" id="fullscreenToggle">
   <img class="icon off" src="img/fullscreen.png">
   <img class="icon on" src="img/windowed.png">
@@ -68,12 +65,23 @@
   <img class="icon" src="img/minus.png">
 </a>
 
-<script src="vendor/screenfull.min.js" ></script>
-<script src="vendor/bowser.min.js" ></script>
-<script src="vendor/marzipano.js" ></script>
+<script src="vendor/screenfull.min.js"></script>
+<script src="vendor/bowser.min.js"></script>
+<script src="vendor/marzipano.js"></script>
 
 <script src="data.js"></script>
 <script src="index.js"></script>
+
+<script>
+  // Fullscreen Toggle Functionality
+  document.getElementById("fullscreenToggle").addEventListener("click", function () {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(err => console.error(err));
+    } else {
+      document.exitFullscreen();
+    }
+  });
+</script>
 
 </body>
 </html>

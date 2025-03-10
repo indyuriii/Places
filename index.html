@@ -73,12 +73,16 @@
 <script src="index.js"></script>
 
 <script>
-  // Fullscreen Toggle Functionality
-  document.getElementById("fullscreenToggle").addEventListener("click", function () {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(err => console.error(err));
+  document.addEventListener("DOMContentLoaded", function () {
+    var fullscreenToggle = document.getElementById("fullscreenToggle");
+
+    if (screenfull && screenfull.enabled) {
+      fullscreenToggle.addEventListener("click", function () {
+        screenfull.toggle();
+      });
     } else {
-      document.exitFullscreen();
+      console.warn("Fullscreen mode is not supported in this browser.");
+      fullscreenToggle.style.display = "none"; // Hide if fullscreen not supported
     }
   });
 </script>
